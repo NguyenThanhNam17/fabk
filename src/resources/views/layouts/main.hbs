@@ -1,0 +1,31 @@
+{{!-- đây là file thành phần chính sẽ quyết định trang web được render ra những gì? --}}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="app">
+    
+    {{!-- nạp file header ở source views vào --}}
+        {{>header}}
+        
+        {{!-- khi nhập đúng tuyến đường (router) nó sẽ import nội dung của 
+        file mà đúng tuyến đường (router) đó vào phần body để render ra --}}
+        <div class="container">
+            {{{body}}}
+        </div>
+     
+     {{!-- nạp file footer ở source views vào --}}
+        {{>footer}}
+    
+    </div>
+
+</body>
+</html>
