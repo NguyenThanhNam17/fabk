@@ -24,6 +24,9 @@ app.set('views', path.join(__dirname,'resources/views'));
 //test thử xem đang ở đâu?
 console.log('path: ',path.join(__dirname,'resources/views'));
 
+//xử lý các ảnh dạng tĩnh là nó sẽ truy cập cái localhost => "public" rồi / img/ (tenanh).png
+app.use(express.static(path.join(__dirname,'public')));
+
 //định tuyến cho file home
 app.get('/', (req, res) => {
   res.render('home');
@@ -33,8 +36,6 @@ app.get('/', (req, res) => {
 app.get('/news',(req,res)=>{
   res.render('news');
 });
-
-
 
 //phần lắng nghe để khởi động source trên web
 app.listen(port, () => {
