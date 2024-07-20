@@ -1,3 +1,5 @@
+# thư mục nào không muốn lưu trên github thì bỏ dô đây
+
 node_modules/
 
 src/public/css/
