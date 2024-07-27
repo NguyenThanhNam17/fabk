@@ -1,12 +1,10 @@
 import newsRouter from './news.router.js';
 import siteRouter from './site.router.js';
 
-function route (app){
+function route(app) {
+    app.use('/news', newsRouter);
 
-app.use('/news',newsRouter);
-
-app.use('/',siteRouter);
-
+    app.use('/', siteRouter);
 }
 
 export default route;

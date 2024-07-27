@@ -1,15 +1,26 @@
-class SiteController {
-    
-    // Get home
-    home(req, res) {
-        res.render('home');
-    }
+import course from '../models/course.js';
+import { mutipleMongooseToObject } from '../until/mongooes.js';
 
+
+
+class SiteController {
+    // Get home
+    async home(req, res, next) {
+      
+      course.find({})
+      .then(course=> {
+        res.render('home', {
+          course: mutipleMongooseToObject(course),   
+        })
+      })
+      .catch(next);
+     
+    //    res.render('home');
+    }
     // Get search
-    search(req,res){
+    search(req, res) {
         res.render('search');
     }
-
 }
 
 // Export the instance of SiteController

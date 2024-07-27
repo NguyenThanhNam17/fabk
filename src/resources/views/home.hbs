@@ -1,4 +1,22 @@
 {{!-- đây là một file có tuyến đường được mình định nghĩa nếu đúng tuyến trên url
 nó sẽ render ra nội dung viết ở đây --}}
 
-<h1>hello bạn </h1>
+<div class="mt-4">
+    <div class="row">
+
+        {{#each course}}
+        <div class="col-sm-6 col-lg-4">
+            <div class="card">
+                <img src="{{this.img}}" class="card-img-top" alt="{{this.name}}">
+                <div class="card-body">
+                    <h5 class="card-title">{{this.name}}</h5>
+                    <p class="card-text">{{this.key}}</p>
+                    <a href="#" class="btn btn-primary">Nam Khùng</a>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+
+
+    </div>
+</div>
