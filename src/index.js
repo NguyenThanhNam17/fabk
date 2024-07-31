@@ -3,6 +3,7 @@ import { fileURLToPath } from 'url';
 import path, { dirname, join } from 'path';
 import { engine } from 'express-handlebars';
 import morgan from 'morgan';
+import methodOverride from 'method-override';
 import route from './routers/index.js';
 const port = 3000;
 const app = express();
@@ -17,6 +18,7 @@ app.use(
     }),
 );
 app.use(express.json());
+app.use(methodOverride('_method'));
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);

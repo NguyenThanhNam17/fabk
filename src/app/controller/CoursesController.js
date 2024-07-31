@@ -34,7 +34,14 @@ class CoursesController {
       .then(course=> res.render('courses/edit',{
         course:mongooseToObject(course)
       }))
-     
+    }
+
+
+    //[put]update
+    update(req,res,next){
+       Course.updateOne({ _id: req.params.id }, req.body)
+       .then(()=>res.redirect('/me/stored/courses'))
+       .catch(next);
     }
 
 }
