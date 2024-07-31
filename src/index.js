@@ -4,7 +4,7 @@ import path, { dirname, join } from 'path';
 import { engine } from 'express-handlebars';
 import morgan from 'morgan';
 import route from './routers/index.js';
-const port = 3001;
+const port = 3000;
 const app = express();
 import db from '../src/config/db/index.js';
 
@@ -32,6 +32,9 @@ app.engine(
     'hbs',
     engine({
         extname: '.hbs',
+        helpers:{
+            sum:(a,b)=>a+b,
+        }
     }),
 );
 app.set('view engine', 'hbs');
@@ -47,5 +50,5 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //phần lắng nghe để khởi động source trên web
 app.listen(port, () => {
-    console.log('Server is running on http://localhost:3001');
+    console.log('Server is running on http://localhost:3000');
 });
