@@ -44,6 +44,24 @@ class CoursesController {
        .catch(next);
     }
 
+    delete(req,res,next){
+      Course.delete({_id:req.params.id})
+      .then(()=>res.redirect('back'))
+      .catch(next)
+    }
+
+    restore(req,res,next){
+      Course.restore({_id:req.params.id})
+      .then(()=>res.redirect('back'))
+      .catch(next)
+    }
+
+    forceDelete(req,res,next){
+      Course.deleteOne({_id:req.params.id})
+      .then(()=>res.redirect('back'))
+      .catch(next)
+    }
+
 }
 
 // Export the instance of NewsController

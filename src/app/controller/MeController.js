@@ -11,6 +11,16 @@ class MeController {
     }))
     .catch(next)
   }
+
+
+  trashCourse(req,res,next){
+    Course.findDeleted({})
+    .then((courses)=>res.render('me/trash-Course',{
+      courses:mutipleMongooseToObject(courses)
+    }))
+    .catch(next)
+  }
+
 }
 
 // Export the instance of NewsController
